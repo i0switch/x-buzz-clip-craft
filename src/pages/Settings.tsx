@@ -5,13 +5,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/components/ui/use-toast";
 import { useSettings } from "@/hooks/use-settings";
 import { Seo } from "@/components/Seo";
-
+import { Link } from "react-router-dom";
 const Settings = () => {
   const { settings, update, updateOutput } = useSettings();
   const { toast } = useToast();
+  const loggedIn = Boolean(localStorage.getItem("xbuzz_x_cookie"));
   const [accountsText, setAccountsText] = useState(settings.accounts.join("\n"));
 
   const handleSave = () => {
@@ -29,6 +31,25 @@ const Settings = () => {
     <div className="container mx-auto p-6 space-y-6">
       <Seo title="設定 | Xバズポストショート動画変換" description="監視対象や動画の出力設定" canonical="/settings" />
       
+      <Card className="border bg-card/60 backdrop-blur">
+        <CardHeader>
+          <CardTitle>監視用Xアカウント設定</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-1">
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-muted-foreground">ログイン状況</span>
+              {loggedIn ? <Badge variant="default">ログイン済み</Badge> : <Badge variant="secondary">未ログイン</Badge>}
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Cookieの保存状態で判定しています。セッションが切れた場合は再ログインしてください。
+            </p>
+          </div>
+          <Button asChild variant="hero" size="lg">
+            <Link to="/setup">ログイン</Link>
+          </Button>
+        </CardContent>
+      </Card>
       <Card className="border bg-card/60 backdrop-blur">
         <CardHeader>
           <CardTitle>X監視アカウント設定</CardTitle>
