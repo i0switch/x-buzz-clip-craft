@@ -1,3 +1,4 @@
+
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -27,29 +28,38 @@ const Settings = () => {
   return (
     <div className="container mx-auto p-6 space-y-6">
       <Seo title="設定 | Xバズポストショート動画変換" description="監視対象や動画の出力設定" canonical="/settings" />
+      
       <Card className="border bg-card/60 backdrop-blur">
         <CardHeader>
-          <CardTitle>監視設定</CardTitle>
+          <CardTitle>X監視アカウント設定</CardTitle>
         </CardHeader>
-        <CardContent className="grid gap-6 md:grid-cols-2">
+        <CardContent className="space-y-6">
           <div className="space-y-2">
             <Label>監視対象Xアカウント（複数可・改行/カンマ区切り）</Label>
             <textarea
               className="w-full min-h-40 rounded-md border bg-background px-3 py-2 text-sm"
               value={accountsText}
               onChange={(e) => setAccountsText(e.target.value)}
+              placeholder="例：@username1
+@username2
+@username3"
             />
+            <p className="text-sm text-muted-foreground">
+              @マークありなしどちらでも可能。改行またはカンマで区切って複数アカウントを指定できます。
+            </p>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="interval">監視間隔（分）</Label>
-            <Input
-              id="interval"
-              type="number"
-              min={1}
-              value={settings.intervalMinutes}
-              onChange={(e) => update({ intervalMinutes: Number(e.target.value) || 1 })}
-            />
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="interval">監視間隔（分）</Label>
+              <Input
+                id="interval"
+                type="number"
+                min={1}
+                value={settings.intervalMinutes}
+                onChange={(e) => update({ intervalMinutes: Number(e.target.value) || 1 })}
+              />
+            </div>
           </div>
         </CardContent>
       </Card>
