@@ -1,4 +1,4 @@
-import { Film, LogIn, Settings, LayoutDashboard } from "lucide-react";
+import { Film, LogIn, LayoutDashboard } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import {
   Sidebar,
@@ -18,7 +18,6 @@ import { PointerField } from "./PointerField";
 
 const items = [
   { title: "ダッシュボード", url: "/", icon: LayoutDashboard },
-  { title: "設定", url: "/settings", icon: Settings },
   { title: "初期セットアップ", url: "/setup", icon: LogIn },
 ];
 
@@ -44,9 +43,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               <span className="text-sm sm:text-base font-semibold">Xバズポストショート動画変換</span>
             </div>
           </div>
-          <NavLink to="/settings" className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1">
-            <Settings className="h-4 w-4" /> 設定
-          </NavLink>
         </div>
       </header>
 
