@@ -15,13 +15,31 @@ const Settings = () => {
   const { toast } = useToast();
   const loggedIn = Boolean(localStorage.getItem("xbuzz_x_cookie"));
   const [accountsText, setAccountsText] = useState(settings.accounts.join("\n"));
+  const [tiktokText, setTiktokText] = useState((settings.shortSites?.tiktokAccounts || []).join("\n"));
+  const [instagramText, setInstagramText] = useState((settings.shortSites?.instagramAccounts || []).join("\n"));
+  const [youtubeText, setYoutubeText] = useState((settings.shortSites?.youtubeAccounts || []).join("\n"));
 
   const handleSave = () => {
-    const accounts = accountsText
-      .split(/\n|,/) // 改行・カンマ区切り
-      .map((s) => s.trim())
-      .filter(Boolean);
-    update({ accounts });
+    const parseList = (text: string) =>
+      text
+        .split(/\n|,/) // 改行・カンマ区切り
+        .map((s) => s.trim())
+        .filter(Boolean);
+
+    const accounts = parseList(accountsText);
+    const tiktok = parseList(tiktokText);
+    const instagram = parseList(instagramText);
+    const youtube = parseList(youtubeText);
+
+    update({
+      accounts,
+      shortSites: {
+        ...(settings.shortSites || { tiktokAccounts: [], instagramAccounts: [], youtubeAccounts: [], intervalMinutes: 10 }),
+        tiktokAccounts: tiktok,
+        instagramAccounts: instagram,
+        youtubeAccounts: youtube,
+      },
+    });
     toast({ title: "保存しました", description: "設定が保存されました。" });
   };
 
@@ -79,6 +97,63 @@ const Settings = () => {
                 min={1}
                 value={settings.intervalMinutes}
                 onChange={(e) => update({ intervalMinutes: Number(e.target.value) || 1 })}
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="border bg-card/60 backdrop-blur">
+        <CardHeader>
+          <CardTitle>ショート動画サイト監視アカウント設定</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-2 md:col-span-2">
+              <Label>TikTok（複数可・改行/カンマ区切り）</Label>
+              <textarea
+                className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
+                value={tiktokText}
+                onChange={(e) => setTiktokText(e.target.value)}
+                placeholder="例：@tiktok_user1&#10;@tiktok_user2"
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>Instagram（複数可・改行/カンマ区切り）</Label>
+              <textarea
+                className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
+                value={instagramText}
+                onChange={(e) => setInstagramText(e.target.value)}
+                placeholder="例：@insta_user1&#10;@insta_user2"
+              />
+            </div>
+
+            <div className="space-y-2 md:col-span-2">
+              <Label>YouTube（複数可・改行/カンマ区切り）</Label>
+              <textarea
+                className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
+                value={youtubeText}
+                onChange={(e) => setYoutubeText(e.target.value)}
+                placeholder="例：@channel1&#10;@channel2"
+              />
+            </div>
+
+            <div className="space-y-2 max-w-xs">
+              <Label htmlFor="short-interval">監視間隔（分）</Label>
+              <Input
+                id="short-interval"
+                type="number"
+                min={1}
+                value={settings.shortSites.intervalMinutes}
+                onChange={(e) =>
+                  update({
+                    shortSites: {
+                      ...settings.shortSites,
+                      intervalMinutes: Number(e.target.value) || 1,
+                    },
+                  })
+                }
               />
             </div>
           </div>

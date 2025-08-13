@@ -13,10 +13,18 @@ export interface OutputSettings {
 }
 
 
+export interface ShortSitesSettings {
+  tiktokAccounts: string[];
+  instagramAccounts: string[];
+  youtubeAccounts: string[];
+  intervalMinutes: number;
+}
+
 export interface AppSettings {
   accounts: string[];
   intervalMinutes: number;
   output: OutputSettings;
+  shortSites: ShortSitesSettings;
 }
 
 const DEFAULT_SETTINGS: AppSettings = {
@@ -30,6 +38,12 @@ const DEFAULT_SETTINGS: AppSettings = {
     backgroundVideoPath: "",
     telopTopText: "",
     telopBottomText: "",
+  },
+  shortSites: {
+    tiktokAccounts: [],
+    instagramAccounts: [],
+    youtubeAccounts: [],
+    intervalMinutes: 10,
   },
 };
 
