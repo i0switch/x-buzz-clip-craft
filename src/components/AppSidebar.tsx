@@ -35,7 +35,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <header className="h-14 flex items-center border-b bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/40">
+      <header className="sticky top-0 z-40 h-14 flex items-center border-b bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/40">
         <div className="w-full px-4 md:px-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <SidebarTrigger className="ml-1" />
@@ -48,7 +48,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       </header>
 
       <div className="flex min-h-[calc(100svh-3.5rem)] w-full">
-        <Sidebar className={collapsed ? "w-14" : "w-60"}>
+        <Sidebar className={(collapsed ? "w-14" : "w-60") + " hidden md:block"}>
           <SidebarContent>
             <SidebarGroup>
               <SidebarGroupLabel>メニュー</SidebarGroupLabel>
