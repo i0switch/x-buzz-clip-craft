@@ -17,7 +17,7 @@ const Setup = () => {
 
   return (
     <div className="container mx-auto p-6 space-y-6">
-      <Seo title="初期セットアップ | Xバズポストショート動画変換" description="X監視用アカウントのセッション/Cookieを保存" canonical="/setup" />
+      <Seo title="初期セットアップ | アダアフィ用ショート動画支援アプリ（仮）" description="X監視用アカウントのセッション/Cookieを保存" canonical="/setup" />
       <Card className="border bg-card/60 backdrop-blur">
         <CardHeader>
           <CardTitle>初期セットアップ（X監視用アカウント）</CardTitle>

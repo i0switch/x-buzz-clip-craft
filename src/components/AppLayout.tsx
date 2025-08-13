@@ -19,7 +19,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="w-full px-4 md:px-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Film className="h-5 w-5 text-primary" />
-            <span className="text-sm sm:text-base font-semibold">Xバズポストショート動画変換</span>
+            <span className="text-sm sm:text-base font-semibold">アダアフィ用ショート動画支援アプリ（仮）</span>
           </div>
           
           <nav className="flex gap-1">

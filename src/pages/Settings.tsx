@@ -47,7 +47,7 @@ const Settings = () => {
 
   return (
     <div className="container mx-auto p-6 space-y-6">
-      <Seo title="設定 | Xバズポストショート動画変換" description="監視対象や動画の出力設定" canonical="/settings" />
+      <Seo title="設定 | アダアフィ用ショート動画支援アプリ（仮）" description="監視対象や動画の出力設定" canonical="/settings" />
       
       <Card className="border bg-card/60 backdrop-blur">
         <CardHeader>
