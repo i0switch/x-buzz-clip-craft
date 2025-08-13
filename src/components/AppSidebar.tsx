@@ -28,14 +28,15 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const collapsed = state === "collapsed";
 
   const isActive = (path: string) => currentPath === path;
-  const isExpanded = items.some((i) => isActive(i.url));
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
-    isActive ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium" : "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground";
+    isActive
+      ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+      : "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground";
 
   return (
     <>
       <header className="h-14 flex items-center border-b bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/40">
-        <div className="container mx-auto flex items-center justify-between gap-3">
+        <div className="w-full px-4 md:px-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <SidebarTrigger className="ml-1" />
             <div className="flex items-center gap-2">
