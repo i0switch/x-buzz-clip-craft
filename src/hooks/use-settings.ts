@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
 export type Aspect = "9:16" | "16:9" | "1:1";
-export type TelopPosition = "top" | "bottom";
-export type ScreenshotPosition = "top" | "center" | "bottom";
 
 export interface OutputSettings {
   resolution: string; // e.g. 1080x1920
@@ -10,9 +8,10 @@ export interface OutputSettings {
   lengthSec: number;
   bgmPath?: string;
   backgroundVideoPath?: string;
-  screenshotPosition: ScreenshotPosition;
-  telopPosition: TelopPosition;
+  telopTopText?: string;
+  telopBottomText?: string;
 }
+
 
 export interface AppSettings {
   accounts: string[];
@@ -29,10 +28,11 @@ const DEFAULT_SETTINGS: AppSettings = {
     lengthSec: 20,
     bgmPath: "",
     backgroundVideoPath: "",
-    screenshotPosition: "center",
-    telopPosition: "bottom",
+    telopTopText: "",
+    telopBottomText: "",
   },
 };
+
 
 const STORAGE_KEY = "xbuzz_settings";
 

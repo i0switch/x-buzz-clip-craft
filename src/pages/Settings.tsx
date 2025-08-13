@@ -160,31 +160,25 @@ const Settings = () => {
           </div>
 
           <div className="space-y-2">
-            <Label>スクショの位置</Label>
-            <Select value={settings.output.screenshotPosition} onValueChange={(v) => updateOutput({ screenshotPosition: v as any })}>
-              <SelectTrigger>
-                <SelectValue placeholder="選択" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="top">上</SelectItem>
-                <SelectItem value="center">中央</SelectItem>
-                <SelectItem value="bottom">下</SelectItem>
-              </SelectContent>
-            </Select>
+            <Label htmlFor="telopTop">テロップ（上部）任意</Label>
+            <Input
+              id="telopTop"
+              placeholder="例: 最新のトレンド速報"
+              value={settings.output.telopTopText || ""}
+              onChange={(e) => updateOutput({ telopTopText: e.target.value })}
+            />
           </div>
 
           <div className="space-y-2">
-            <Label>テロップの位置</Label>
-            <Select value={settings.output.telopPosition} onValueChange={(v) => updateOutput({ telopPosition: v as any })}>
-              <SelectTrigger>
-                <SelectValue placeholder="選択" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="top">上</SelectItem>
-                <SelectItem value="bottom">下</SelectItem>
-              </SelectContent>
-            </Select>
+            <Label htmlFor="telopBottom">テロップ（下部）任意</Label>
+            <Input
+              id="telopBottom"
+              placeholder="例: チャンネル登録・高評価お願いします"
+              value={settings.output.telopBottomText || ""}
+              onChange={(e) => updateOutput({ telopBottomText: e.target.value })}
+            />
           </div>
+
         </CardContent>
       </Card>
 
