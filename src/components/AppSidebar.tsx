@@ -48,7 +48,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       </header>
 
       <div className="flex min-h-[calc(100svh-3.5rem)] w-full">
-        <Sidebar className={(collapsed ? "w-14" : "w-60") + " hidden md:block"}>
+        <Sidebar className={collapsed ? "w-14" : "w-60"}>
           <SidebarContent>
             <SidebarGroup>
               <SidebarGroupLabel>メニュー</SidebarGroupLabel>
