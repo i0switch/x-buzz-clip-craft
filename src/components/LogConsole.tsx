@@ -15,7 +15,7 @@ export const LogConsole = ({ logs, onClear, className }: LogConsoleProps) => {
   }, [logs.length]);
 
   return (
-    <Card className={"h-80 overflow-hidden border bg-card/60 backdrop-blur " + (className ?? "") }>
+    <Card className={"h-full overflow-hidden border bg-card/60 backdrop-blur " + (className ?? "") }>
       <div className="h-full flex flex-col">
         <div className="flex items-center justify-between px-3 py-2 border-b">
           <span className="text-sm text-muted-foreground">動作状況ログ</span>
