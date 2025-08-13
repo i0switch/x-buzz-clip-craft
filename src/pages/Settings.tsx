@@ -51,7 +51,7 @@ const Settings = () => {
       
       <Card className="border bg-card/60 backdrop-blur">
         <CardHeader>
-          <CardTitle>監視用Xアカウント設定</CardTitle>
+          <CardTitle>監視用アカウント設定</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
@@ -63,9 +63,20 @@ const Settings = () => {
               Cookieの保存状態で判定しています。セッションが切れた場合は再ログインしてください。
             </p>
           </div>
-          <Button asChild variant="hero" size="lg">
-            <Link to="/setup">ログイン</Link>
-          </Button>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild variant="hero" size="lg">
+              <Link to="/setup">X ログイン</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link to="/setup">YouTube ログイン</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link to="/setup">TikTok ログイン</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link to="/setup">Instagram ログイン</Link>
+            </Button>
+          </div>
         </CardContent>
       </Card>
       <div className="grid gap-6 md:grid-cols-2">
