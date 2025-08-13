@@ -115,20 +115,6 @@ const Settings = () => {
           </div>
 
           <div className="space-y-2">
-            <Label>アスペクト比</Label>
-            <Select value={settings.output.aspect} onValueChange={(v) => updateOutput({ aspect: v as any })}>
-              <SelectTrigger>
-                <SelectValue placeholder="選択" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="9:16">9:16（縦）</SelectItem>
-                <SelectItem value="16:9">16:9（横）</SelectItem>
-                <SelectItem value="1:1">1:1（正方形）</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
             <Label htmlFor="length">動画の長さ（秒）</Label>
             <Input
               id="length"
