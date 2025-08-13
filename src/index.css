@@ -111,7 +111,6 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Noto Sans JP', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    background-image: var(--gradient-app);
-    background-attachment: fixed;
+    /* background gradient disabled for a solid app background */
   }
 }

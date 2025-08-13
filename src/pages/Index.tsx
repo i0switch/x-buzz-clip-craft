@@ -55,7 +55,7 @@ const Index = () => {
                 <Button variant="outline" size="lg" className="w-full sm:w-auto">設定を開く</Button>
               </NavLink>
             </div>
-            <div className="grid grid-cols-2 gap-4 pt-4 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-sm">
               <div>
                 <div className="text-muted-foreground">監視対象</div>
                 <div className="font-medium">{accountsText}</div>

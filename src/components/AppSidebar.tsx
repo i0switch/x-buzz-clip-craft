@@ -14,7 +14,7 @@ import {
   SidebarInset,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { PointerField } from "./PointerField";
+
 
 const items = [
   { title: "ダッシュボード", url: "/", icon: LayoutDashboard },
@@ -81,7 +81,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
-      <PointerField />
+      
       <div className="min-h-screen flex w-full">{children}</div>
     </SidebarProvider>
   );
