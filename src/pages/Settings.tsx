@@ -68,97 +68,99 @@ const Settings = () => {
           </Button>
         </CardContent>
       </Card>
-      <Card className="border bg-card/60 backdrop-blur">
-        <CardHeader>
-          <CardTitle>X監視アカウント設定</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="space-y-2">
-            <Label>監視対象Xアカウント（複数可・改行/カンマ区切り）</Label>
-            <textarea
-              className="w-full min-h-40 rounded-md border bg-background px-3 py-2 text-sm"
-              value={accountsText}
-              onChange={(e) => setAccountsText(e.target.value)}
-              placeholder="例：@username1
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card className="border bg-card/60 backdrop-blur">
+          <CardHeader>
+            <CardTitle>X監視アカウント設定</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-2">
+              <Label>監視対象Xアカウント（複数可・改行/カンマ区切り）</Label>
+              <textarea
+                className="w-full min-h-40 rounded-md border bg-background px-3 py-2 text-sm"
+                value={accountsText}
+                onChange={(e) => setAccountsText(e.target.value)}
+                placeholder="例：@username1
 @username2
 @username3"
-            />
-            <p className="text-sm text-muted-foreground">
-              @マークありなしどちらでも可能。改行またはカンマで区切って複数アカウントを指定できます。
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="space-y-2">
-              <Label htmlFor="interval">監視間隔（分）</Label>
-              <Input
-                id="interval"
-                type="number"
-                min={1}
-                value={settings.intervalMinutes}
-                onChange={(e) => update({ intervalMinutes: Number(e.target.value) || 1 })}
               />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card className="border bg-card/60 backdrop-blur">
-        <CardHeader>
-          <CardTitle>ショート動画サイト監視アカウント設定</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="space-y-2 md:col-span-2">
-              <Label>TikTok（複数可・改行/カンマ区切り）</Label>
-              <textarea
-                className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
-                value={tiktokText}
-                onChange={(e) => setTiktokText(e.target.value)}
-                placeholder="例：@tiktok_user1&#10;@tiktok_user2"
-              />
+              <p className="text-sm text-muted-foreground">
+                @マークありなしどちらでも可能。改行またはカンマで区切って複数アカウントを指定できます。
+              </p>
             </div>
 
-            <div className="space-y-2 md:col-span-2">
-              <Label>Instagram（複数可・改行/カンマ区切り）</Label>
-              <textarea
-                className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
-                value={instagramText}
-                onChange={(e) => setInstagramText(e.target.value)}
-                placeholder="例：@insta_user1&#10;@insta_user2"
-              />
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="interval">監視間隔（分）</Label>
+                <Input
+                  id="interval"
+                  type="number"
+                  min={1}
+                  value={settings.intervalMinutes}
+                  onChange={(e) => update({ intervalMinutes: Number(e.target.value) || 1 })}
+                />
+              </div>
             </div>
+          </CardContent>
+        </Card>
 
-            <div className="space-y-2 md:col-span-2">
-              <Label>YouTube（複数可・改行/カンマ区切り）</Label>
-              <textarea
-                className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
-                value={youtubeText}
-                onChange={(e) => setYoutubeText(e.target.value)}
-                placeholder="例：@channel1&#10;@channel2"
-              />
-            </div>
+        <Card className="border bg-card/60 backdrop-blur">
+          <CardHeader>
+            <CardTitle>ショート動画サイト監視アカウント設定</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-2 md:col-span-2">
+                <Label>TikTok（複数可・改行/カンマ区切り）</Label>
+                <textarea
+                  className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
+                  value={tiktokText}
+                  onChange={(e) => setTiktokText(e.target.value)}
+                  placeholder="例：@tiktok_user1&#10;@tiktok_user2"
+                />
+              </div>
 
-            <div className="space-y-2 max-w-xs">
-              <Label htmlFor="short-interval">監視間隔（分）</Label>
-              <Input
-                id="short-interval"
-                type="number"
-                min={1}
-                value={settings.shortSites.intervalMinutes}
-                onChange={(e) =>
-                  update({
-                    shortSites: {
-                      ...settings.shortSites,
-                      intervalMinutes: Number(e.target.value) || 1,
-                    },
-                  })
-                }
-              />
+              <div className="space-y-2 md:col-span-2">
+                <Label>Instagram（複数可・改行/カンマ区切り）</Label>
+                <textarea
+                  className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
+                  value={instagramText}
+                  onChange={(e) => setInstagramText(e.target.value)}
+                  placeholder="例：@insta_user1&#10;@insta_user2"
+                />
+              </div>
+
+              <div className="space-y-2 md:col-span-2">
+                <Label>YouTube（複数可・改行/カンマ区切り）</Label>
+                <textarea
+                  className="w-full min-h-32 rounded-md border bg-background px-3 py-2 text-sm"
+                  value={youtubeText}
+                  onChange={(e) => setYoutubeText(e.target.value)}
+                  placeholder="例：@channel1&#10;@channel2"
+                />
+              </div>
+
+              <div className="space-y-2 max-w-xs">
+                <Label htmlFor="short-interval">監視間隔（分）</Label>
+                <Input
+                  id="short-interval"
+                  type="number"
+                  min={1}
+                  value={settings.shortSites.intervalMinutes}
+                  onChange={(e) =>
+                    update({
+                      shortSites: {
+                        ...settings.shortSites,
+                        intervalMinutes: Number(e.target.value) || 1,
+                      },
+                    })
+                  }
+                />
+              </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
 
       <Card className="border bg-card/60 backdrop-blur">
         <CardHeader>
