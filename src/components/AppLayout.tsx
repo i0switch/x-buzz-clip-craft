@@ -9,6 +9,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const navItems = [
     { title: "ダッシュボード", url: "/" },
     { title: "設定", url: "/settings" },
+    { title: "ヘルプ", url: "/help" },
   ];
 
   const isActive = (path: string) => currentPath === path;

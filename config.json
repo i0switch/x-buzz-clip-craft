@@ -1,0 +1,32 @@
+
+{
+  "schemaVersion": "1.0.0",
+  "general": {
+    "outputPath": "./output",
+    "logLevel": "info",
+    "locale": "ja",
+    "watchUrl": "https://twitter.com/elonmusk"
+  },
+  "ingest": {
+    "provider": "scrape",
+    "scrape": {
+      "enabled": true,
+      "cookie": "dummy_cookie"
+    }
+  },
+  "render": {
+    "backgroundVideoPath": "./assets/mock/short.mp4",
+    "loopBackground": true,
+    "overlayPosition": "center",
+    "qualityPreset": "standard",
+    "textOverlay": {
+      "fontSize": 48,
+      "boxOpacity": 0.8,
+      "boxPadding": 20
+    }
+  },
+  "scheduler": {
+    "enabled": true,
+    "intervalMinutes": 1
+  }
+}

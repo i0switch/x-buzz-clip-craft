@@ -1,0 +1,13 @@
+# すべての承認確認をスキップし、自動で「yes」と応答する
+approval_policy = "never"
+
+# ワークスペース（現在のフォルダ）へのファイルの読み書きを許可する
+sandbox_mode    = "workspace-write"
+
+# 必要に応じて、ワークスペース書き込みモードでもインターネットアクセスを許可する
+[sandbox_workspace_write]
+network_access = true
+
+# 実行するシェルをPowerShellに指定し、許可する
+[shell]
+command = ["powershell", "-NoProfile", "-Command"]
