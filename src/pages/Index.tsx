@@ -109,7 +109,6 @@ const Index = () => {
 
         <div className="space-y-3 xl:col-span-1">
           <LogConsole logs={logs} onClear={clearLogs} className="min-h-[30vh] h-[40vh] md:h-[50vh] xl:h-[60vh]" />
-          <p className="text-xs text-muted-foreground">本バージョンはGUIのみ（デモ動作）。スクレイピング/動画生成は次の実装で対応します。</p>
         </div>
       </section>
     </div>
