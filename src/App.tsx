@@ -9,7 +9,6 @@ import NotFound from "./pages/NotFound";
 import Settings from "./pages/Settings";
 import Setup from "./pages/Setup";
 import { AppLayout } from "./components/AppLayout";
-import Help from "./pages/Help";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +22,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/help" element={<Help />} />
             <Route path="/setup" element={<Setup />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

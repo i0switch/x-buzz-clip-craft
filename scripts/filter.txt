@@ -1,1 +1,0 @@
-[0:v]scale=1080:1920,setsar=1[bg];[1:v]scale=iw*0.8:ih*0.8[img];[bg][img]overlay=(W-w)/2:(H-h)/2,drawtext=fontfile='C\\:/Windows/Fonts/YuGothM.ttc':text='SMOKE TEST':fontcolor=white:fontsize=48:box=1:boxcolor=black@0.8:boxborderw=20:borderw=2:bordercolor=white@0.9[out]
