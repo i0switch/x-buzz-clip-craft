@@ -6,11 +6,23 @@ import { useSettings } from "@/hooks/use-settings";
 import { Seo } from "@/components/Seo";
 import { NavLink } from "react-router-dom";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+import { downloadProjectAsZip } from "@/utils/downloadProject";
 
 // Extend Window interface to include electronAPI
 declare global { interface Window { api: any } }
 
 const Index = () => {
+  const { toast } = useToast();
+
+  const handleDownload = async () => {
+    const success = await downloadProjectAsZip();
+    if (success) {
+      toast({ title: "ダウンロード完了", description: "プロジェクトファイルをローカルに保存しました。" });
+    } else {
+      toast({ title: "エラー", description: "ダウンロードに失敗しました。", variant: "destructive" });
+    }
+  };
   const { settings } = useSettings();
   const [logs, setLogs] = useState<string[]>([]);
   const [isWorking, setIsWorking] = useState(false);
@@ -79,6 +91,9 @@ const Index = () => {
               <NavLink to="/settings" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto" disabled={isScraping}>設定を開く</Button>
               </NavLink>
+              <Button variant="outline" size="lg" onClick={handleDownload} className="w-full sm:w-auto">
+                ローカル保存
+              </Button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-sm">
               <div>
